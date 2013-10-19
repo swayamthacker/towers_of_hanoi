@@ -1,0 +1,33 @@
+#include <iostream>
+#include<string>
+
+using namespace std;
+
+void hanoi_towers(int disks, string source, string destination, string temp);
+string source;
+string destination;
+string temp;
+int disks;
+
+int main()
+{
+    cout<<"How many disks? ";
+    cin>>disks;
+    hanoi_towers(disks, "Pole A", "Pole C", "Pole B");
+    return 0;
+}
+
+
+void hanoi_towers(int disks, string source, string destination, string temp)
+ {
+    if (disks == 1) {
+        cout<<"Move disk 1 from "<<source<<" to "<<destination<<endl;
+    }
+     else
+     {
+        hanoi_towers(disks-1,source,temp,destination);
+        cout<<"Move disk "<<disks<<" from "<<source<<" to "<<destination<<endl;
+        hanoi_towers(disks-1,temp,destination,source);
+        //cout<< "disks = "<<disks;
+     }
+}
